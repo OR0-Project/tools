@@ -17,8 +17,8 @@ HOST="localhost"
 PORT="5555"
 
 # Variables
-KERNDIR=$(realpath $(dirname $0)/..)
-TARGETDIR=$KERNDIR/work/dumps
+DUMPDIR=$(realpath $(dirname $0)/..)
+TARGETDIR=$DUMPDIR/work/dumps
 TARGET=$TARGETDIR/memory.dmp
 
 # Mem bounds
