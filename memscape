@@ -1,0 +1,14 @@
+#!/bin/bash
+# //////////////////////////////////////////////////////////////////////////////
+# // File:     Name:        memscape                                          //
+# //           Language:    Bash                                              //
+# //                                                                          //
+# // Details:  Memscape launcher script.                                      //
+# //                                                                          //
+# // Author:   Name:    Marijn Verschuren, Ralph Vreman                       //
+# //           Email:   marijnverschuren3@gmail.com                           //
+# //                                                                          //
+# // Date:     2023-10-25                                                     //
+# //////////////////////////////////////////////////////////////////////////////
+
+python3 $(realpath $(dirname $0)/)/mscape/main.py

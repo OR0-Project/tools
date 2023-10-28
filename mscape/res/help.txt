@@ -1,0 +1,14 @@
+MemScape 1.0.0
+--------------
+
+Commands:
+    clear                         Clear the screen.
+    dump <offset> <size> <file>   Dumps a block of memory to <file>.
+    exit                          Exit MemScape.
+    help                          View this help page.
+    mmap <subcommand>             Memory map manipulation command.
+    offset <newpos>               Change the current offset in memory.
+    ord <char|string>             Displays a hex table for the specified string.
+    read <offset> [size]          Reads a block of memory and shows it.
+
+    

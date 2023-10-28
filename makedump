@@ -1,0 +1,56 @@
+#!/bin/bash
+# //////////////////////////////////////////////////////////////////////////////
+# // File:     Name:        makedump                                          //
+# //           Language:    Bash                                              //
+# //                                                                          //
+# // Details:  QEMU live memory dumping script.                               //
+# //                                                                          //
+# // Author:   Name:    Marijn Verschuren, Ralph Vreman                       //
+# //           Email:   marijnverschuren3@gmail.com                           //
+# //                                                                          //
+# // Date:     2023-10-25                                                     //
+# //////////////////////////////////////////////////////////////////////////////
+
+# Connection settings
+# This is configured in the Makefile
+HOST="localhost"
+PORT="5555"
+
+# Variables
+KERNDIR=$(realpath $(dirname $0)/..)
+TARGETDIR=$KERNDIR/work/dumps
+TARGET=$TARGETDIR/memory.dmp
+
+# Mem bounds
+R_START="0x00000000"
+R_SIZE="8192000"
+
+# Remove previous dump
+
+if [ -f "$TARGET" ]; then
+    echo Removing previous dump...
+    rm $TARGET
+fi;
+
+# Make dirs
+mkdir -p "$TARGETDIR"
+
+( echo open "$HOST" "$PORT";
+  sleep 1;
+  echo "pmemsave $R_START $R_SIZE \"$TARGET\"";
+  sleep 3;
+  echo "exit"
+) | telnet
+
+# Verify if dump was made
+if [ ! -f "$TARGET" ]; then
+    echo No memory dump file was created - check if QEMU is running.
+else
+    cat > $TARGETDIR/memory.dmp.txt <<EOL
+Dump created at $(date)
+
+Address Start: $R_START
+Size: $R_SIZE
+EOL
+    echo Memory dump complete!
+fi;

@@ -1,0 +1,14 @@
+# Build artifacts
+.vscode
+
+# ide config
+.idea
+
+# ignore vim swp file
+*.swp
+
+# Ignore memory dumps
+*.dmp
+
+# Python cache
+__pycache__
