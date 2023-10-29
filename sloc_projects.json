@@ -1,7 +1,22 @@
 [
     {
         "name": "kernel",
-        "path": "./kernel/src",
+        "path": "./kernel",
         "extensions": [".c", ".h", ".asm", ".ld"]
+    },
+    {
+        "name": "bstrapper",
+        "path": "./bstrapper",
+        "extensions": [".c", ".h", ".asm", ".ld"]
+    },
+    {
+        "name": "stdlib",
+        "path": "./stdlib",
+        "extensions": [".c", ".h", ".asm", ".ld"]
+    },
+    {
+        "name": "tools",
+        "path": "./tools",
+        "extensions": [".py"]
     }
 ]
